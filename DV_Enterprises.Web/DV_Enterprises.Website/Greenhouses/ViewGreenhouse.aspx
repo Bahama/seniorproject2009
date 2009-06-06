@@ -289,7 +289,7 @@
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <legend>Temeperature Module</legend>
+                    <legend>Temperature Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsTemperatureActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsTemperatureActivated" />
@@ -412,7 +412,7 @@
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <legend>Temeperature Module</legend>
+                    <legend>Temperature Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsTemperatureActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsTemperatureActivated" />
