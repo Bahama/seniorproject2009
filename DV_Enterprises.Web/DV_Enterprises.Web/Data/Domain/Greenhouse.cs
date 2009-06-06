@@ -61,14 +61,14 @@ namespace DV_Enterprises.Web.Data.Domain
             return Repository.All(dc, username);
         }
 
-        public static Greenhouse ByID(int greebhouseID)
+        public static Greenhouse ByID(int greenhouseID)
         {
-            return ByID(null, greebhouseID);
+            return ByID(null, greenhouseID);
         }
 
-        public static Greenhouse ByID(DataContext dc, int greebhouseID)
+        public static Greenhouse ByID(DataContext dc, int greenhouseID)
         {
-            return All(dc).ByID(greebhouseID);
+            return All(dc).ByID(greenhouseID);
         }
 
         /// <summary>
