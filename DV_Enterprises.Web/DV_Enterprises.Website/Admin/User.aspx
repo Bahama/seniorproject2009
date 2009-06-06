@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="User Details" Language="C#" MasterPageFile="~/Template.master" AutoEventWireup="true" CodeFile="User.aspx.cs" Inherits="Admin_User" %>
+<%@ Import Namespace="DV_Enterprises.Web.Data.Domain"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -19,6 +20,24 @@
     </dl>
     <div class="grid_16">
         <h3 class="title">Greenhouses</h3>
+        <asp:ListView ID="lvGreenhouses" runat="server">
+            <LayoutTemplate>
+                <ul class="greenhouses">
+                    <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                </ul>
+            </LayoutTemplate>
+            
+            <ItemTemplate>
+                <dl class="table_display grid_8 clearfix">
+                    <dt>
+                        <asp:Literal ID="litGreenhosueID" runat="server" Text="<%# ((Greenhouse)Container.DataItem).ToString() %>" />
+                    </dt>
+                    <dd>
+                        <asp:HyperLink ID="linkView" runat="server" Text="View" />s
+                    </dd>
+                </dl>
+            </ItemTemplate>
+        </asp:ListView>
     </div>
 </asp:Content>
 
