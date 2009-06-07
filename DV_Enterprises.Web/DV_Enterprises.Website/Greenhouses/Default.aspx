@@ -12,11 +12,9 @@
     </div>
     <asp:ListView ID="lvGreenhouses" runat="server" 
         onitemdatabound="lvGreenhouses_ItemDataBound"
-        onitemediting="lvGreenhouses_ItemEditing"
         onitemcanceling="lvGreenhouses_ItemCanceling"
         onitemcommand="lvGreenhouses_ItemCommand"
         onitemdeleting="lvGreenhouses_ItemDeleting"
-        onitemupdating="lvGreenhouses_ItemUpdating"
         OnItemInserting="lvGreenhouses_ItemInserting">
         
         <LayoutTemplate>
@@ -34,7 +32,6 @@
                 <h3 class="title">
                     <asp:HyperLink ID="linkGreenhouseName" runat="server" Text='<%# ((Greenhouse)Container.DataItem).ToString() %>' />
                 </h3>
-                <asp:LinkButton ID="lbEdit" runat="server" CommandName="Edit" Text="edit" />
                 <asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete" Text="delete" />
             </li>
         </ItemTemplate>
