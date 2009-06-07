@@ -2,6 +2,8 @@
 html { background-color: #000; }
 body { background: #92CC47 url('../images/body.png') repeat-x; }
 
+
+
 h2.title, .AspNet-CreateUserWizard-StepTitlePanel, .AspNet-Login-TitlePanel
     { font-size: 2em; letter-spacing: -0.03em; margin-top: 0.3333em; }
 .title, .AspNet-CreateUserWizard-StepTitlePanel, .AspNet-Login-TitlePanel
