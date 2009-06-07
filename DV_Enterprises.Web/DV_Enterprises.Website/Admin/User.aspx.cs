@@ -22,19 +22,23 @@ namespace Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["Id"] == null && IsPostBack) return;
-            var userName = Request.QueryString["Id"];
-            var user = users[userName];
-            var  userProfile = Profile.GetProfile(user.UserName);
-        
+            if (_webContext.Username == string.Empty) _redirector.GoToAdminPage();
+            if (IsPostBack) return;
+            var username = _webContext.Username;
+            var user = users[username];
+            var userProfile = Profile.GetProfile(user.UserName);
+
+            var title = string.IsNullOrEmpty(userProfile.Details.Name)
+                            ? username
+                            : userProfile.Details.Name;
+            Title = litTitle.Text = string.Format("Account Information for {0}", title);
             litUserName.Text = user.UserName;
             linkEmail.NavigateUrl = string.Format("mailto:{0}", user.Email);
             linkEmail.Text = user.Email;
             litFullAddress.Text = userProfile.Details.Address;
             litPhone.Text = userProfile.Details.Phone;
-            litName.Text = userProfile.Details.Name;
             var roles = string.Empty;
-            foreach(var role in Roles.GetRolesForUser(user.UserName))
+            foreach (var role in Roles.GetRolesForUser(user.UserName))
             {
                 roles = role;
             }

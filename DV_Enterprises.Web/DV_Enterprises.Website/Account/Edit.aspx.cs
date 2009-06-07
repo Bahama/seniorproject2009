@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Security;
-using DV_Enterprises.Web.Domain;
+using DV_Enterprises.Web.Data.Domain;
 
 public partial class Account_Edit : System.Web.UI.Page
 {

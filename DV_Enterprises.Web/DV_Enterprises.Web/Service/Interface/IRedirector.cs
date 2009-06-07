@@ -16,5 +16,8 @@ namespace DV_Enterprises.Web.Service.Interface
         void GoToHomePage();
         void GoToErrorPage();
         void GoToSignupPage();
+
+        void GoToAdminPage();
+        void GoToAdminUserPage(string username);
     }
 }

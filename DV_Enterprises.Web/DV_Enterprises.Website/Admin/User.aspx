@@ -4,8 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <h2 class="title grid_16"><asp:Literal ID="litTitle" runat="server" /></h2>
     <div class="grid_8">
-        <h2 class="title"><asp:Literal ID="litName" runat="server" /></h2>
         <dl class="table_display clearfix">
             <h3 class="title">Details</h3>
             <dt>User name:</dt>
@@ -21,7 +21,7 @@
         </dl>
     </div>
     <div class="grid_8">
-        <h2 class="title">Greenhouses</h2>
+        <h3 class="title">Greenhouses</h3>
         <asp:ListView ID="lvGreenhouses" runat="server" onitemdatabound="lvGreenhouses_ItemDataBound">
             <LayoutTemplate>
                 <dl class="greenhouses table_display clearfix">
