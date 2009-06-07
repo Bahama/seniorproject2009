@@ -2,6 +2,7 @@
 using System.Web.Profile;
 using System.Web.Security;
 using System.Web.UI;
+using DV_Enterprises.Web.Data.Domain;
 
 public partial class Admin_User : Page
 {
@@ -21,20 +22,15 @@ public partial class Admin_User : Page
         lblName.Text = userProfile.Details.Name;
 
         var roles = string.Empty;
-        foreach(var role in Roles.GetRolesForUser())
+        foreach(var role in Roles.GetRolesForUser(user.UserName))
         {
             roles = role.ToString();
         }
 
         lblRoles.Text = roles;
+        lvGreenhouses.DataSource = Greenhouse.AllByUsername(user.UserName);
+        lvGreenhouses.DataBind();
     }
-    protected void lvGreenhouses_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-    }
-
-
-
     protected void btnDelete_Click(object sender, EventArgs e)
     {
         users.Remove(User.Identity.Name);

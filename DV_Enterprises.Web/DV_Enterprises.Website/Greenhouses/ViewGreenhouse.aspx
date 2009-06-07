@@ -21,6 +21,34 @@
             </address>
         </asp:Panel>
         
+        <asp:Panel ID="pnlUsers" runat="server" Visible="false">
+            <asp:ListView ID="lvUsers" runat="server"
+                onitemcommand="lvUsers_ItemCommand" 
+                onitemdeleting="lvUsers_ItemDeleting">
+                <LayoutTemplate>
+                    <h3 class="title">Users</h3>
+                    <ul>
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                    </ul>
+                </LayoutTemplate>
+                
+                <ItemTemplate>
+                    <li>
+                        <asp:Literal ID="litUsername" runat="server" Text="<%# ((GreenhouseUser)Container.DataItem).Username %>" />
+                        <span><asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete" Text="(remove)" /></span>
+                    </li>
+                </ItemTemplate>
+            </asp:ListView>
+            <div class="form">
+                <fieldset>
+                    <asp:DropDownList ID="ddlUsers" runat="server">
+                    </asp:DropDownList>
+                    <asp:Button ID="butAddUsers" runat="server" Text="Add new user to greenhouse" 
+                        onclick="butAddUsers_Click" />
+                </fieldset>
+            </div>
+        </asp:Panel>
+        
         <asp:Panel ID="pnlEditGreenhouse" runat="server" Visible="false" CssClass="form">
             <fieldset>
                 <legend>Address</legend>
@@ -115,14 +143,19 @@
                 
                 <div class="grid_16">
                     <dl class="table_display grid_4 alpha omega">
+                        <asp:Panel ID="pnlOwner" runat="server" Visible="false">
+                            <dt>User:</dt>
+                            <dd><asp:Literal ID="litUser" runat="server" Text="<%# ((Section)Container.DataItem).Username %>" /></dd>
+                        </asp:Panel>
                         <dt>Preset:</dt>
                         <dd><asp:Literal ID="litSectionPreset" runat="server" Text="<%# ((Section)Container.DataItem).Preset.Name %>" /></dd>
                     </dl>
                 </div>
                 <div class="modules container_12">
-                    <asp:Panel ID="pnlTemperature" runat="server" CssClass="grid_4">
+                    <asp:Panel ID="pnlTemperature" runat="server" CssClass="grid_12">
                         <h4 class="title">Temperature Control</h4>
-                        <dl class="table_display clearfix">
+                        <dl class="table_display clearfix grid_4 alpha">
+                            <h5 class="title">Basic Settings</h5>
                             <dt>Ideal Temperature :</dt>
                             <dd>
                                 <asp:Literal ID="litSectionIdealTempeture" runat="server" 
@@ -138,12 +171,17 @@
                                         : PresetValue(((Section)Container.DataItem).Preset.TemperatureThreshold) %>" />
                             </dd>
                         </dl>
-                        <dvent:TaskList ID="tlstHeating" runat="server" Type="Heating" SectionID="<%# ((Section)Container.DataItem).ID %>" />
-                        <dvent:TaskList ID="tlstCooling" runat="server" Type="Cooling" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        <div class="grid_4">
+                            <dvent:TaskList ID="tlstHeating" runat="server" Type="Heating" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
+                        <div class="grid_4 omega">
+                            <dvent:TaskList ID="tlstCooling" runat="server" Type="Cooling" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
                     </asp:Panel>
-                    <asp:Panel ID="pnlLighting" runat="server" CssClass="grid_4">
+                    <asp:Panel ID="pnlLighting" runat="server" CssClass="grid_16">
                         <h4 class="title">Lighting Control</h4>
-                        <dl class="table_display clearfix">
+                        <dl class="table_display clearfix grid_4 alpha">
+                            <h5 class="title">Basic Settings</h5>
                             <dt>Ideal Lighting:</dt>
                             <dd>
                                 <asp:Literal ID="litIdealLighting" runat="server" 
@@ -159,12 +197,17 @@
                                         : PresetValue(((Section)Container.DataItem).Preset.LightIntensityThreshold) %>" />
                             </dd>
                         </dl>
-                        <dvent:TaskList ID="tlstLighting" runat="server" Type="Lighting" SectionID="<%# ((Section)Container.DataItem).ID %>" />
-                        <dvent:TaskList ID="tlstOverrideLighting" runat="server" Type="OverrideLighting" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        <div class="grid_4">
+                            <dvent:TaskList ID="tlstLighting" runat="server" Type="Lighting" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
+                        <div class="grid_4 omega">
+                            <dvent:TaskList ID="tlstOverrideLighting" runat="server" Type="OverrideLighting" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
                     </asp:Panel>
-                    <asp:Panel ID="pnlHumidity" runat="server" CssClass="grid_4">
+                    <asp:Panel ID="pnlHumidity" runat="server" CssClass="grid_16">
                         <h4 class="title">Humidity Control</h4>
-                        <dl class="table_display clearfix ">
+                        <dl class="table_display clearfix grid_4 alpha">
+                            <h5 class="title">Basic Settings</h5>
                             <dt>Ideal Humidity:</dt>
                             <dd>
                                 <asp:Literal ID="litIdealHumidity" runat="server"
@@ -180,12 +223,17 @@
                                     : PresetValue(((Section)Container.DataItem).Preset.HumidityThreshold) %>" />
                             </dd>
                         </dl>
-                        <dvent:TaskList ID="tlstHumidifying" runat="server" Type="Humidifying" SectionID="<%# ((Section)Container.DataItem).ID %>" />
-                        <dvent:TaskList ID="tlsDehumidifying" runat="server" Type="Dehumidifying" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        <div class="grid_4">
+                            <dvent:TaskList ID="tlstHumidifying" runat="server" Type="Humidifying" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
+                        <div class="grid_4 omega">
+                            <dvent:TaskList ID="tlsDehumidifying" runat="server" Type="Dehumidifying" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
                     </asp:Panel>
-                    <asp:Panel ID="pnlWaterLevel" runat="server" CssClass="grid_4">
+                    <asp:Panel ID="pnlWaterLevel" runat="server" CssClass="grid_16">
                         <h4 class="title">Watering Control</h4>
-                        <dl class="table_display clearfix ">
+                        <dl class="table_display clearfix grid_4 alpha">
+                            <h5 class="title">Basic Settings</h5>
                             <dt>Ideal Watering Level:</dt>
                             <dd>
                                 <asp:Literal ID="Literal1" runat="server"
@@ -201,10 +249,14 @@
                                     : PresetValue(((Section)Container.DataItem).Preset.WaterLevelThreshold) %>" />
                             </dd>
                         </dl>
-                        <dvent:TaskList ID="tlsWatering" runat="server" Type="Watering" SectionID="<%# ((Section)Container.DataItem).ID %>" />
-                        <dvent:TaskList ID="tlsNoWatering" runat="server" Type="NoWatering" SectionID="<%# ((Section)Container.DataItem).ID %>" /> 
+                        <div class="grid_4">
+                            <dvent:TaskList ID="tlsWatering" runat="server" Type="Watering" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
+                        <div class="grid_4 omega">
+                            <dvent:TaskList ID="tlsNoWatering" runat="server" Type="NoWatering" SectionID="<%# ((Section)Container.DataItem).ID %>" />
+                        </div>
                     </asp:Panel>
-                    <asp:Label ID="lblNoModules" runat="server" Visible="false" Text="There are currently no modules in this section" CssClass="title no_modules grid_16" />
+                    <asp:Label ID="lblNoModules" runat="server" Visible="false" Text="There are currently no modules in this section" CssClass="title no_modules grid_12" />
                 </div>
             </li>
         </ItemTemplate>
@@ -213,6 +265,7 @@
             <div class="form">
                 <asp:Literal ID="litUserID" runat="server" Visible="false" Text="<%# ((Section)Container.DataItem).UserID %>" />
                 <asp:Literal ID="litSectionID" runat="server" Visible="false" Text="<%# ((Section)Container.DataItem).ID %>" />
+                <asp:Literal ID="litPresetID" runat="server" Visible="false" Text="<%# ((Section)Container.DataItem).PresetID %>" />
                 <fieldset class="grid_8">
                     <legend><span>Basic Settings</span></legend>
                     <ol>
@@ -222,14 +275,21 @@
                             <p class="inline-hints"></p>
                         </li>
                         <li>
-                            <asp:Label ID="lblPreset" runat="server" Text="Preset:" AssociatedControlID="tbxName" />
+                            <asp:Label ID="lblPreset" runat="server" Text="Preset:" AssociatedControlID="ddlPreset" />
                             <asp:DropDownList ID="ddlPreset" runat="server" AutoPostBack="true" />
                             <p class="inline-hints">A set of default setting for this section</p>
                         </li>
+                        <asp:Panel ID="pnlOwner" runat="server" Visible="false">
+                            <li>
+                                <asp:Label ID="lblOwner" runat="server" Text="Owner:" AssociatedControlID="ddlOwner" />
+                                <asp:DropDownList ID="ddlOwner" runat="server" AutoPostBack="true" />
+                                <p class="inline-hints">Owner for this section</p>
+                            </li>
+                        </asp:Panel>
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <legend>Temeperature Module</legend>
+                    <legend>Temperature Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsTemperatureActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsTemperatureActivated" />
@@ -295,7 +355,7 @@
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <legend>Watering Module</legend>
+                    <legend>Water Level Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsWaterLevelActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsWaterLevelActivated" />
@@ -342,10 +402,17 @@
                             <asp:DropDownList ID="ddlPreset" runat="server" AutoPostBack="true" />
                             <p class="inline-hints">A set of default setting for this section</p>
                         </li>
+                        <asp:Panel ID="pnlOwner" runat="server" Visible="false">
+                            <li>
+                                <asp:Label ID="lblOwner" runat="server" Text="Owner:" AssociatedControlID="ddlOwner" />
+                                <asp:DropDownList ID="ddlOwner" runat="server" AutoPostBack="true" />
+                                <p class="inline-hints">Owner for this section</p>
+                            </li>
+                        </asp:Panel>
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <legend>Temeperature Module</legend>
+                    <legend>Temperature Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsTemperatureActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsTemperatureActivated" />
@@ -411,8 +478,7 @@
                     </ol>
                 </fieldset>
                 <fieldset class="grid_8">
-                    <ol>
-                     <legend>Water level Module</legend>
+                    <legend>Water Level Module</legend>
                     <ol>
                         <li>
                             <asp:Label ID="lblIsWaterLevelActivated" runat="server" Text="Activated?" AssociatedControlID="cboIsWaterLevelActivated" />
