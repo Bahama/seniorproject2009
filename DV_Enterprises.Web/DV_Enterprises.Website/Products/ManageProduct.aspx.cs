@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Web.UI;
 using DV_Enterprises.Web.Data.Domain;
-using DV_Enterprises.Web.Presenter.Products;
-using DV_Enterprises.Web.Presenter.Products.Interface;
+using DV_Enterprises.Web.Service;
+using DV_Enterprises.Web.Service.Interface;
 
 namespace Products
 {
-    public partial class ManageProduct : Page, IManageProduct
+    public partial class ManageProduct : Page
     {
-        private ManageProductPresenter _presenter;
+        private readonly static IWebContext WebContext = new WebContext();
+        private readonly static IRedirector Redirector = new Redirector();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _presenter = new ManageProductPresenter();
-
-            if (!User.IsInRole("Administrator"))
-            {
-                _presenter.Redirector.GoToHomePage();
-            }
-            else
-            {
-                _presenter.Init(this, IsPostBack);
-            }
+            if (!User.IsInRole("Administrator")) Redirector.GoToHomePage();
+            if (IsPostBack) return;
+            if (WebContext.ProductId <= 0) Redirector.GoToProducts();
+            LoadData(Product.Find((WebContext.ProductId)));
         }
 
         public void LoadData(Product product)
@@ -36,18 +31,16 @@ namespace Products
 
         protected void butSubmit_Click(object sender, EventArgs e)
         {
-            var product = new Product
-                              {
-                                  ID = litProductId.Text.Length != 0 ? Convert.ToInt32(litProductId.Text) : 0,
-                                  Name = txtName.Text,
-                                  Description = txtDescription.Text,
-                                  Price = Convert.ToDecimal(txtPrice.Text),
-                                  IsActive = cboIsActive.Checked,
-                                  Image = txtImage.Text,
-                              };
-
-            _presenter.SaveProduct(product);
-            Response.Redirect("~/Products/Default.aspx");
+            new Product
+                {
+                    ID = string.IsNullOrEmpty(litProductId.Text) ? 0 : Convert.ToInt32(litProductId.Text),
+                    Name = txtName.Text,
+                    Description = txtDescription.Text,
+                    Price = Convert.ToDecimal(txtPrice.Text),
+                    IsActive = cboIsActive.Checked,
+                    Image = txtImage.Text,
+                }.Save();
+            Redirector.GoToProducts();
         }
     }
 }

@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
-using DV_Enterprises.Web.Presenter.Products;
-using DV_Enterprises.Web.Presenter.Products.Interface;
+using DV_Enterprises.Web.Service;
+using DV_Enterprises.Web.Service.Interface;
 
 namespace Products
 {
-    public partial class Default : Page, IDefault
+    public partial class Default : Page
     {
-        private DefaultPresenter _presenter;
+        private readonly static IWebContext WebContext = new WebContext();
+        private readonly static IRedirector Redirector = new Redirector();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _presenter = new DefaultPresenter();
-            _presenter.Init(this);
+            if(IsPostBack) return;
+            LoadData(Product.All().ToList());
         }
 
         public void LoadData(List<Product> products)
@@ -29,29 +31,25 @@ namespace Products
         {
             var litProductId = e.Item.FindControl("litProductID") as Literal;
             var linkProductName = e.Item.FindControl("linkProductName") as HyperLink;
-
-            
             var lbEdit = e.Item.FindControl("lbEdit") as LinkButton;
 
-            if (Roles.IsUserInRole("Administrator"))
+            if (litProductId == null) return;
+            if (lbEdit != null)
             {
-                lbEdit.Visible = true;
+                lbEdit.Visible = Roles.IsUserInRole("Administrator");
+                lbEdit.Attributes.Add("ProductID", litProductId.Text);
             }
-
-            lbEdit.Attributes.Add("ProductID", litProductId.Text);
-            
-            linkProductName.NavigateUrl = string.Format("~/Products/ViewProduct.aspx?ProductID={0}", litProductId.Text);
-
+            if (linkProductName != null)
+                linkProductName.NavigateUrl = string.Format("~/Products/ViewProduct.aspx?ProductID={0}",
+                                                            litProductId.Text);
         }
 
         public void lbEdit_Click(object sender, EventArgs e)
         {
             var lbEdit = sender as LinkButton;
-            _presenter.EditProduct(Convert.ToInt32(lbEdit.Attributes["ProductID"]));
+            Redirector.GoToManageProduct(Convert.ToInt32(lbEdit.Attributes["ProductID"]));
         }
-        protected void lvProducts_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-}
+        protected void lvProducts_SelectedIndexChanged(object sender, EventArgs e){}
+    }
 }
