@@ -11,5 +11,9 @@ public partial class Signup : System.Web.UI.Page
     {
 
     }
-    
+
+    protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
+    {
+
+    }
 }

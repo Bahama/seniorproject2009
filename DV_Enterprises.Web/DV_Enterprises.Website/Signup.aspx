@@ -6,8 +6,15 @@
    
     <div class="grid_16">
       <h4 class="title">
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" 
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ActiveStepIndex="1" oncreateduser="CreateUserWizard1_CreatedUser" 
        >
+        
+        <FinishNavigationTemplate>
+            <asp:Button ID="FinishPreviousButton" runat="server" CausesValidation="False" 
+                CommandName="MovePrevious" Text="Previous" />
+            <asp:Button ID="FinishButton" runat="server" CommandName="MoveComplete" 
+                Text="Finish" />
+        </FinishNavigationTemplate>
         
         <LabelStyle HorizontalAlign="Center" Width="50%" />
         
@@ -186,7 +193,25 @@
                     </table>
                 </ContentTemplate>
             </asp:CreateUserWizardStep>
-            <asp:CompleteWizardStep runat="server" />
+            <asp:CompleteWizardStep runat="server" >
+                <ContentTemplate>
+                    <table border="0">
+                        <tr>
+                            <td align="center" colspan="2">
+                                Complete</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Your account has been successfully created.</td>
+                        </tr>
+                        <tr>
+                            <td align="right" colspan="2" style="text-align: left">
+                                Please Login. Thank you
+                            </td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+            </asp:CompleteWizardStep>
         </WizardSteps>
         
     </asp:CreateUserWizard>
