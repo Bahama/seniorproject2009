@@ -34,6 +34,19 @@ namespace DV_Enterprises.Web.Service
             }
         }
 
+        public string Username
+        {
+            get
+            {
+                var result = string.Empty;
+                if (GetQueryStringValue("Username") != null)
+                {
+                    result = GetQueryStringValue("Username");
+                }
+                return result;
+            }
+        }
+
         public int GreenhouseIdSession
         {
             get

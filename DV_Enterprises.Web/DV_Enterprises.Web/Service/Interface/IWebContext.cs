@@ -8,5 +8,6 @@ namespace DV_Enterprises.Web.Service.Interface
         int ProductId { get; }
         int GreenhouseId { get; }
         int GreenhouseIdSession { get; set; }
+        string Username { get; }
     }
 }
