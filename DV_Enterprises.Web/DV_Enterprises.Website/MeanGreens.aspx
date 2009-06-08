@@ -17,7 +17,7 @@
         <li>Learn how to be an actual farmer</li>
         <li>Save pictures of your greenhouse to be uploaded to the web</li>
     </ul>
-    <p class="grid_7">Mean Greens is a strategy game where the player takes control of Bob; a farmer who recently inherited a large amount of land, and has a dream to make it big in the farming industry. The elements are against Farmer Bob with changing seasons, and he must use high tech greenhouses to insure his success in this unpredictable climate. The goal is simple, plant, tend, harvest, and sell your yield to improve your business.</p>
+    <p class="grid_7">Mean Greens is a strategy game where the player takes control of Bob; a farmer who recently inherited a large amount of land, and has a dream to make it big in the farming industry. The elements are against Farmer Bob with changing seasons, and he must use high tech greenhouses to ensure his success in this unpredictable climate. The goal is simple, plant, tend, harvest, and sell your yield to improve your business.</p>
 
    
     <img src="App_Themes/Green960/images/Dowloadbtn.png" 

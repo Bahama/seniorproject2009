@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 
 public partial class Admin_Default : Page
 {
@@ -82,5 +74,25 @@ public partial class Admin_Default : Page
         }
         gvUsers.DataSource = users;
         gvUsers.DataBind();
+    }
+    protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        var litUserName = e.Row.FindControl("litUserName") as Literal;
+        if (litUserName != null)
+        {
+            var profile = Profile.GetProfile(litUserName.Text);
+            var litName = e.Row.FindControl("litName") as Literal;
+            var litAddress = e.Row.FindControl("litAddress") as Literal;
+            var litPhone = e.Row.FindControl("litPhone") as Literal;
+            var lnkEdit = e.Row.FindControl("lnkEdit") as HyperLink;
+
+            if (litName != null) litName.Text = profile.Details.Name;
+            if (litAddress != null)
+                litAddress.Text = string.Format("{0} {1} {2}", profile.Details.City, profile.Details.State,
+                                                profile.Details.ZipCode);
+            if (litPhone != null) litPhone.Text = profile.Details.Phone;
+            if (lnkEdit != null)
+                lnkEdit.NavigateUrl = string.Format("~/Admin/User.aspx?Username={0}", litUserName.Text);
+        }
     }
 }

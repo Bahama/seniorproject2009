@@ -67,6 +67,16 @@ namespace DV_Enterprises.Web.Service
             Redirect("~/Accounts/Signup.aspx");
         }
 
+        public void GoToAdminPage()
+        {
+            Redirect("~/Admin/Default.aspx");
+        }
+
+        public void GoToAdminUserPage(string username)
+        {
+            Redirect(String.Format("~/Admin/User.aspx?UserID={0}", username));
+        }
+
         private static void Redirect(string path)
         {
             HttpContext.Current.Response.Redirect(path);

@@ -10,7 +10,6 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using DV_Enterprises.Web.Domain;
 
 public partial class Customer_Default : System.Web.UI.Page
 {

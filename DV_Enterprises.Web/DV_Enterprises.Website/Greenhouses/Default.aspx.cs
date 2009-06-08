@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
-using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
 using StructureMap;
@@ -80,21 +77,11 @@ namespace Greenhouses
             if (!User.IsInRole("administrator"))
             {
                 var lbDelete = e.Item.FindControl("lbDelete") as LinkButton;
-                var lbEdit = e.Item.FindControl("lbEdit") as LinkButton;
                 if (lbDelete != null) lbDelete.Visible = false;
-                if (lbEdit != null) lbEdit.Visible = false;
             }
         }
 
-        protected void lvGreenhouses_ItemEditing(object sender, ListViewEditEventArgs e)
-        {
-            CloseInsert();
-            lvGreenhouses.EditIndex = e.NewEditIndex;
-            Bind();
-        }
-
         protected void lvGreenhouses_ItemInserting(object sender, ListViewInsertEventArgs e) { }
-        protected void lvGreenhouses_ItemUpdating(object sender, ListViewUpdateEventArgs e) { }
         protected void lvGreenhouses_ItemDeleting(object sender, ListViewDeleteEventArgs e) { }
 
         protected void lvGreenhouses_ItemCanceling(object sender, ListViewCancelEventArgs e)
@@ -117,10 +104,6 @@ namespace Greenhouses
                 case "Insert":
                     // Save new section
                     InsertGreenhouse(e.Item);
-                    break;
-                case "Update":
-                    // update editied section
-                    UpdateGreenhouse(e.Item);
                     break;
                 case "Delete":
                     // delete old section
@@ -152,26 +135,6 @@ namespace Greenhouses
                 }
             }.Save();
             CloseInsert();
-            Bind();
-        }
-
-        private void UpdateGreenhouse(Control item)
-        {
-            new Greenhouse
-            {
-                ID = Convert.ToInt32(((TextBox)item.FindControl("litGreenhouseID")).Text),
-                Address = new Address
-                {
-                    City = ((TextBox)item.FindControl("tbxCity")).Text,
-                    Country = ((TextBox)item.FindControl("tbxCountry")).Text,
-                    IsDefault = ((CheckBox)item.FindControl("cboIsDefault")).Checked,
-                    StateOrProvince = ((TextBox)item.FindControl("tbxState")).Text,
-                    StreetLine1 = ((TextBox)item.FindControl("tbxSteetAddress1")).Text,
-                    StreetLine2 = ((TextBox)item.FindControl("tbxSteetAddress2")).Text,
-                    Zip = ((TextBox)item.FindControl("tbxZipCode")).Text.ToNullableInt()
-                }
-            }.Save();
-            lvGreenhouses.EditIndex = -1;
             Bind();
         }
 
