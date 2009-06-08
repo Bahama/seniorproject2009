@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Template.master" AutoEventWireup="true" CodeFile="AddCrop.aspx.cs" Inherits="Greenhouses_AddCrop" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Template.master" AutoEventWireup="true" CodeFile="AddCrop.aspx.cs" Inherits="Greenhouses.AddCrop" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>

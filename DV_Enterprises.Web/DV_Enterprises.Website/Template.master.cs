@@ -1,8 +1,7 @@
 ﻿using System;
+using System.Web.UI;
 
-public partial class Template : System.Web.UI.MasterPage
+public partial class Template : MasterPage
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-    }
+    protected void Page_Load(object sender, EventArgs e) { }
 }

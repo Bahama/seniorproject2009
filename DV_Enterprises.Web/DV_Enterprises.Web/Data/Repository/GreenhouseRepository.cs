@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Domain;
 using DV_Enterprises.Web.Data.Filters;
@@ -44,7 +43,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc"></param>
         /// <returns>return an IQueryable collection of Greenhouse</returns>
-        public IQueryable<Domain.Greenhouse> All(DataContext dc)
+        public IQueryable<Domain.Greenhouse> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from g in dc.Greenhouses
@@ -71,7 +70,7 @@ namespace DV_Enterprises.Web.Data.Repository
             return r;
         }
 
-        public IQueryable<Domain.Greenhouse> All(DataContext dc, string username)
+        public IQueryable<Domain.Greenhouse> Find(DataContext dc, string username)
         {
             dc = dc ?? Conn.GetContext();
             var r = from g in dc.Greenhouses
@@ -166,11 +165,10 @@ namespace DV_Enterprises.Web.Data.Repository
             return  Section.All(dc).Where(s => s.GreenhouseID == greenhouseID);
         }
 
-
         public IQueryable<GreenhouseUser> LoadGreenhouseUsers(DataContext dc, int greenhouseUserID)
         {
             Usernames.Clear();
-            var r =  GreenhouseUser.All(dc).ByGreenhouseID(greenhouseUserID);
+            var r =  GreenhouseUser.Find(dc).ByGreenhouseID(greenhouseUserID);
             foreach (var user in r)
             {
                 Usernames.Add(user.Username);

@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
+using DV_Enterprises.Web.Data.Domain.Interface;
 
 namespace DV_Enterprises.Web.Data.Domain
 {
-    public class GreenhouseUser
+    public class GreenhouseUser: IGreenhouseUser
     {
         #region Static properties
 
@@ -20,24 +21,14 @@ namespace DV_Enterprises.Web.Data.Domain
 
         #region Static Methods
 
-        public static IQueryable<GreenhouseUser> All()
+        public static IQueryable<GreenhouseUser> Find()
         {
-            return All(null);
+            return Find(null);
         }
 
-        public static IQueryable<GreenhouseUser> All(DataContext dc)
+        public static IQueryable<GreenhouseUser> Find(DataContext dc)
         {
-            return Repository.All(dc);
-        }
-
-        static public GreenhouseUser Find(int id)
-        {
-            return Find(null, id);
-        }
-
-        static public GreenhouseUser Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
+            return Repository.Find(dc);
         }
 
         public static int Save(GreenhouseUser greenhouseUser)

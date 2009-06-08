@@ -3,62 +3,48 @@
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.DataContext" Collapsed="true">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AiBAgCBAAgACAAAEAgCAIAmAITAgAAgDAMhIAABACAQ=</HashCode>
+      <HashCode>AiAAgKBAAAACAAIEAACBIAmAATAgDAADAMgIAAFACIQ=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Product" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+    <Position X="3.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAiAAABAQkgAAUAQgEQJAQBiCACQAAkAIQAAAAIAAA=</HashCode>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Address" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>4AAgiQABEA1ABgAIQAUACMAJiGIAQBABwEAoAAABYAA=</HashCode>
+      <HashCode>EIgiAAABAQEhAgUAUgEAIAQBiCCISBRmAAQEEAAIAAA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Greenhouse" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAgCAABAAAAAAAgQAEAAMABiGAAQASCAEAAAAAAAAA=</HashCode>
+      <HashCode>gAggiQAREA1ABgAoQAUACAAJiCKIQBSCgkAsEgAAYIA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Section" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IQgjAAkBDKyNAIFKQGuQIExh6yiIQhCyAACMEo6RUoQ=</HashCode>
+      <HashCode>IQsjCAFBBSyNAIRKQiuQII5h+2qoQhCSMASMMYyRQoQ=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Task" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAggCBBDAABgABAQAEAAgADqCmgAEQCJAAEEogQCCA=</HashCode>
+      <HashCode>AAgggCBBAAABgABAQAEAAgADqCmoAEQCJAAEEIgQCCA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.User" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="5.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgCAFBAiANKAAowQMAAAwBiCUEBERAAUBAFAA0UAg=</HashCode>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Crop" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AGgjCIEJDKiFAIAiQGGQIAxFqiiKQAQSEEAEEoaEEoQ=</HashCode>
+      <HashCode>ACAgCAFZAgAMKAIowQMAAAwBiCUEFERAA0AAFgA0UIg=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.TaskType" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="4" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAiAAABAAACAAAAQAsAIgQByCAAQEAAAAAIAAABAAA=</HashCode>
+      <HashCode>AAAiAAABAAACAAAAQAMAIgQBiCAAQEAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>

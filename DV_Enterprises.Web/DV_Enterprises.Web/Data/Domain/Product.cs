@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Domain.Interface;
 using StructureMap;
@@ -34,9 +34,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// Find all Product's
         /// </summary>
         /// <returns>return an IQueryable collection of Product</returns>
-        public static IList<Product> All()
+        public static IQueryable<Product> Find()
         {
-            return All(null);
+            return Find(null);
         }
 
         /// <summary>
@@ -44,30 +44,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// </summary>
         /// <param name="dc"></param>
         /// <returns>return an IQueryable collection of Product</returns>
-        public static IList<Product> All(DataContext dc)
+        public static IQueryable<Product> Find(DataContext dc)
         {
-            return Repository.All(dc);
-        }
-
-        /// <summary>
-        /// Find an Product by it's id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>returns a Product</returns>
-        public static Product Find(int id)
-        {
-            return Find(null, id);
-        }
-
-        /// <summary>
-        /// Find an Product by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Product</returns>
-        public static Product Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
+            return Repository.Find(dc);
         }
 
         /// <summary>

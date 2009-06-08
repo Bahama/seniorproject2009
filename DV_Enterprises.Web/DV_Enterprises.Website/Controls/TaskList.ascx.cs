@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
 using StructureMap;
@@ -60,7 +61,7 @@ namespace Controls
 
         public int TaskTypeID
         {
-            get { return _taskTypeID != 0 ? _taskTypeID : (TaskTypeID = TaskType.Find(Type).ID); }
+            get { return _taskTypeID != 0 ? _taskTypeID : (TaskTypeID = TaskType.Find().ByType(Type).ID); }
             private set { _taskTypeID = value; }
         }
 
@@ -70,7 +71,7 @@ namespace Controls
 
         private static List<Task> Tasks(int sectionID, int taskTypeID)
         {
-            return Task.All().Where(t => t.SectionID == sectionID && t.TaskTypeId == taskTypeID).ToList();
+            return Task.Find().Where(t => t.SectionID == sectionID && t.TaskTypeId == taskTypeID).ToList();
         }
 
         #endregion
@@ -117,7 +118,7 @@ namespace Controls
         protected void gvwTasks_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             var startTime = Convert.ToDateTime(gvwTasks.Rows[e.RowIndex].Cells[0].Text);
-            Task.All().Where(t => t.StartTime == startTime && t.SectionID == SectionID && t.TaskTypeId == TaskTypeID).First().Delete();
+            Task.Find().Where(t => t.StartTime == startTime && t.SectionID == SectionID && t.TaskTypeId == TaskTypeID).First().Delete();
             Bind();
             _redirector.GoToViewGreenhouse(_webContext.GreenhouseId);
         }

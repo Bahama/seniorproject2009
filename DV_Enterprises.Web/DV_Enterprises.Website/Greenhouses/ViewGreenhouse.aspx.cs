@@ -8,31 +8,20 @@ using DV_Enterprises.Web.Data.Domain;
 using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
-using StructureMap;
-using Greenhouse=DV_Enterprises.Web.Data.Domain.Greenhouse;
-using GreenhouseUser=DV_Enterprises.Web.Data.Domain.GreenhouseUser;
-using Preset=DV_Enterprises.Web.Data.Domain.Preset;
-using Section=DV_Enterprises.Web.Data.Domain.Section;
 
 namespace Greenhouses
 {
     public partial class ViewGreenhouse : Page
     {
-        private readonly IWebContext _webContext;
-        private readonly IRedirector _redirector;
-
-        public ViewGreenhouse()
-        {
-            _webContext = ObjectFactory.GetInstance<IWebContext>();
-            _redirector = ObjectFactory.GetInstance<IRedirector>();
-        }
+        private readonly static IWebContext WebContext = new WebContext();
+        private readonly static IRedirector Redirector = new Redirector();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             pnlUsers.Visible = User.IsInRole("administrator");
             if (IsPostBack) return;
-            if (_webContext.GreenhouseId <= 0) _redirector.GoToGreenhouses();
-            _webContext.GreenhouseIdSession = _webContext.GreenhouseId;
+            if (WebContext.GreenhouseId <= 0) Redirector.GoToGreenhouses();
+            WebContext.GreenhouseIdSession = WebContext.GreenhouseId;
             Bind();
         }
 
@@ -40,7 +29,7 @@ namespace Greenhouses
 
         private void Bind()
         {
-            var greenhouse = Greenhouse.ByID(_webContext.GreenhouseIdSession);
+            var greenhouse = Greenhouse.Find().ByID(WebContext.GreenhouseIdSession);
             LoadData(greenhouse);
             LoadLocation(greenhouse.Address);
             LoadSection(greenhouse.Sections.ToList());
@@ -52,7 +41,7 @@ namespace Greenhouses
             var userList = new List<MembershipUser>();
             foreach (MembershipUser user in Membership.GetAllUsers())
             {
-                if(!users.Where(u => u.Username == user.UserName).Any()){userList.Add(user);}
+                if (!users.Where(u => u.Username == user.UserName).Any()) { userList.Add(user); }
             }
 
             if (userList.Any())
@@ -130,7 +119,7 @@ namespace Greenhouses
 
         private void DeleteGreenhouseUser(ListViewItem item)
         {
-            var g = GreenhouseUser.All().Where(gu => gu.GreenhouseID == _webContext.GreenhouseIdSession && gu.Username == ((Literal)item.FindControl("litUsername")).Text).SingleOrDefault();
+            var g = GreenhouseUser.Find().Where(gu => gu.GreenhouseID == WebContext.GreenhouseIdSession && gu.Username == ((Literal)item.FindControl("litUsername")).Text).SingleOrDefault();
             g.Delete();
             Bind();
         }
@@ -145,7 +134,7 @@ namespace Greenhouses
             var ddlPreset = e.Item.FindControl("ddlPreset") as DropDownList;
             if (ddlPreset != null)
             {
-                ddlPreset.DataSource = Preset.All();
+                ddlPreset.DataSource = Preset.Find();
                 ddlPreset.DataTextField = "Name";
                 ddlPreset.DataValueField = "ID";
                 if (litPresetID != null) ddlPreset.SelectedValue = litPresetID.Text;
@@ -162,7 +151,7 @@ namespace Greenhouses
             var ddlOwner = e.Item.FindControl("ddlOwner") as DropDownList;
             if (ddlOwner != null)
             {
-                var users = Greenhouse.ByID(_webContext.GreenhouseIdSession).GreenhouseUsers;
+                var users = Greenhouse.Find().ByID(WebContext.GreenhouseIdSession).GreenhouseUsers;
                 ddlOwner.DataSource = users;
                 ddlOwner.DataTextField = "Username";
                 ddlOwner.DataValueField = "UserID";
@@ -237,7 +226,7 @@ namespace Greenhouses
                 lvSections.EditIndex = -1;
             }
             //Bind();
-            _redirector.GoToViewGreenhouse(_webContext.GreenhouseIdSession);
+            Redirector.GoToViewGreenhouse(WebContext.GreenhouseIdSession);
         }
 
         protected void lvSections_ItemCommand(object sender, ListViewCommandEventArgs e)
@@ -270,7 +259,7 @@ namespace Greenhouses
             var ddlPreset = lvSections.InsertItem.FindControl("ddlPreset") as DropDownList;
 
             if (ddlPreset == null) return;
-            ddlPreset.DataSource = Preset.All();
+            ddlPreset.DataSource = Preset.Find();
             ddlPreset.DataTextField = "Name";
             ddlPreset.DataValueField = "ID";
             ddlPreset.DataBind();
@@ -284,7 +273,7 @@ namespace Greenhouses
             var ddlOwner = lvSections.InsertItem.FindControl("ddlOwner") as DropDownList;
             if (ddlOwner != null)
             {
-                var users = Greenhouse.ByID(_webContext.GreenhouseIdSession).GreenhouseUsers;
+                var users = Greenhouse.Find().ByID(WebContext.GreenhouseIdSession).GreenhouseUsers;
                 ddlOwner.DataSource = users;
                 ddlOwner.DataTextField = "Username";
                 ddlOwner.DataValueField = "UserID";
@@ -307,7 +296,7 @@ namespace Greenhouses
                 {
                     ID = Convert.ToInt32(((Literal)item.FindControl("litSectionID")).Text),
                     Name = ((TextBox)item.FindControl("tbxName")).Text,
-                    GreenhouseID = _webContext.GreenhouseIdSession,
+                    GreenhouseID = WebContext.GreenhouseIdSession,
                     UserID = new Guid(userID),
                     PresetID = Convert.ToInt32(((DropDownList)item.FindControl("ddlPreset")).SelectedValue),
                     IsTemperatureActivated = ((CheckBox)item.FindControl("cboIsTemperatureActivated")).Checked,
@@ -325,7 +314,7 @@ namespace Greenhouses
                 }.Save();
             lvSections.EditIndex = -1;
             //Bind();
-            _redirector.GoToViewGreenhouse(_webContext.GreenhouseIdSession);
+            Redirector.GoToViewGreenhouse(WebContext.GreenhouseIdSession);
         }
 
 
@@ -342,7 +331,7 @@ namespace Greenhouses
                 {
                     ID = 0,
                     Name = ((TextBox)item.FindControl("tbxName")).Text,
-                    GreenhouseID = _webContext.GreenhouseIdSession,
+                    GreenhouseID = WebContext.GreenhouseIdSession,
                     UserID = new Guid(userID),
                     PresetID = Convert.ToInt32(((DropDownList)item.FindControl("ddlPreset")).SelectedValue),
                     IsTemperatureActivated = ((CheckBox)item.FindControl("cboIsTemperatureActivated")).Checked,
@@ -360,13 +349,12 @@ namespace Greenhouses
                 }.Save();
             CloseInsert();
             //Bind();
-            _redirector.GoToViewGreenhouse(_webContext.GreenhouseIdSession);
+            Redirector.GoToViewGreenhouse(WebContext.GreenhouseIdSession);
         }
 
         private void DeleteSection(Control item)
         {
-            var s = Section.Find(Convert.ToInt32(((Literal)item.FindControl("litSectionID")).Text));
-            s.Delete();
+            Section.All().ByID(Convert.ToInt32(((Literal)item.FindControl("litSectionID")).Text)).Delete();
             Bind();
         }
 
@@ -387,19 +375,19 @@ namespace Greenhouses
         protected void butUpdateGreenhouse_Click(object sender, EventArgs e)
         {
             var g = new Greenhouse
-                {
-                    ID = _webContext.GreenhouseIdSession,
-                    Address = new Address
-                                  {
-                                      City = tbxCity.Text,
-                                      Country = tbxCountry.Text,
-                                      IsDefault = cboIsDefault.Checked,
-                                      StateOrProvince = tbxState.Text,
-                                      StreetLine1 = tbxSteetAddress1.Text,
-                                      StreetLine2 = tbxSteetAddress2.Text,
-                                      Zip = tbxZipCode.Text.ToNullableInt()
-                                  }
-                };
+                        {
+                            ID = WebContext.GreenhouseIdSession,
+                            Address = new Address
+                                          {
+                                              City = tbxCity.Text,
+                                              Country = tbxCountry.Text,
+                                              IsDefault = cboIsDefault.Checked,
+                                              StateOrProvince = tbxState.Text,
+                                              StreetLine1 = tbxSteetAddress1.Text,
+                                              StreetLine2 = tbxSteetAddress2.Text,
+                                              Zip = tbxZipCode.Text.ToNullableInt()
+                                          }
+                        };
             g.Save();
             LoadLocation(g.Address);
             linkEdit.Visible = true;
@@ -417,15 +405,15 @@ namespace Greenhouses
         protected void butAddUsers_Click(object sender, EventArgs e)
         {
             var userid = new Guid(ddlUsers.SelectedValue);
-            if (GreenhouseUser.All().Where(gu => gu.UserID == userid).SingleOrDefault() == null)
+            if (GreenhouseUser.Find().Where(gu => gu.UserID == userid).SingleOrDefault() == null)
             {
                 new GreenhouseUser
                     {
                         UserID = userid,
-                        GreenhouseID = _webContext.GreenhouseIdSession,
+                        GreenhouseID = WebContext.GreenhouseIdSession,
                     }.Save();
             }
             Bind();
         }
-}
+    }
 }

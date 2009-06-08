@@ -28,9 +28,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// Find all TaskType's
         /// </summary>
         /// <returns>return an IQueryable collection of TaskType</returns>
-        public static IQueryable<TaskType> All()
+        public static IQueryable<TaskType> Find()
         {
-            return All(null);
+            return Find(null);
         }
 
         /// <summary>
@@ -38,41 +38,20 @@ namespace DV_Enterprises.Web.Data.Domain
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of TaskType</returns>
-        public static IQueryable<TaskType> All(DataContext dc)
+        public static IQueryable<TaskType> Find(DataContext dc)
         {
-            return Repository.All(dc);
+            return Repository.Find(dc);
         }
 
-        /// <summary>
-        /// Find an TaskType by it's id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>returns a TaskType</returns>
-        public static TaskType Find(int id)
-        {
-            return Find(null, id);
-        }
+        //public static TaskType Find(TaskTypes type)
+        //{
+        //    return Find(null, type);
+        //}
 
-        /// <summary>
-        /// Find an TaskType by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a TaskType</returns>
-        public static TaskType Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
-        }
-
-        public static TaskType Find(TaskTypes type)
-        {
-            return Find(null, type);
-        }
-
-        public static TaskType Find(DataContext dc, TaskTypes type)
-        {
-            return Repository.Find(dc, type);
-        }
+        //public static TaskType Find(DataContext dc, TaskTypes type)
+        //{
+        //    return Repository.Find(dc, type);
+        //}
 
         /// <summary>
         /// Save a TaskType

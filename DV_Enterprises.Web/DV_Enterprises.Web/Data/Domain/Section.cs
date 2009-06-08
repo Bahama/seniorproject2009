@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Domain.Interface;
+using DV_Enterprises.Web.Data.Filters;
 using StructureMap;
 
 namespace DV_Enterprises.Web.Data.Domain
@@ -23,7 +24,7 @@ namespace DV_Enterprises.Web.Data.Domain
         public string Name { get; set; }
         public int GreenhouseID { get; set; }
         public int PresetID { get; set; }
-        public Preset Preset { get { return _preset ?? (_preset = Preset.Find(PresetID)); } }
+        public Preset Preset { get { return _preset ?? (_preset = Preset.Find().ByID(PresetID)); } }
         public Guid UserID { get; set; }
         public string Username { get; set; }
         public bool IsTemperatureActivated { get; set; }
@@ -61,29 +62,29 @@ namespace DV_Enterprises.Web.Data.Domain
         /// <returns>return an IQueryable collection of Section</returns>
         public static IQueryable<Section> All(DataContext dc)
         {
-            return Repository.All(dc);
+            return Repository.Find(dc);
         }
 
-        /// <summary>
-        /// Find an Section by it's id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>returns a Section</returns>
-        public static Section Find(int id)
-        {
-            return Find(null, id);
-        }
+        ///// <summary>
+        ///// Find an Section by it's id.
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns>returns a Section</returns>
+        //public static Section Find(int id)
+        //{
+        //    return Find(null, id);
+        //}
 
-        /// <summary>
-        /// Find an Section by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Section</returns>
-        public static Section Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
-        }
+        ///// <summary>
+        ///// Find an Section by it's id.
+        ///// </summary>
+        ///// <param name="dc"></param>
+        ///// <param name="id"></param>
+        ///// <returns>returns a Section</returns>
+        //public static Section Find(DataContext dc, int id)
+        //{
+        //    return Repository.Find(dc, id);
+        //}
 
         /// <summary>
         /// Save a Section

@@ -1,4 +1,376 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="DV_Enterprises.Web.Data.Connection" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Data\Connection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.DataContext" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAAgKBAAAACAAIEAACBIAmAATAgDAADAMgIAAFACIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.User" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAgCAFZAgAMKAIowQMAAAwBiCUEFERAA0AAFgA0UIg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.TaskType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAABAAACAAAAQAMAIgQBiCAAQEAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Product" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIgiAAABAQEhAgUAUgEAIAQBiCCISBRmAAQEEAAIAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Greenhouse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAggiQAREA1ABgAoQAUACAAJiCKIQBSCgkAsEgAAYIA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.GreenhouseUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAhggABAAAAAIAIQAMACAxhiKBCAAACAABAIAAAAQg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Task" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgggCBBAAABgABAQAEAAgADqCmoAEQCJAAEEIgQCCA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Preset" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACkjCAFBASyMAIAiQCGQIA5F62iqQBQSEESEMISAAoQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQsjCAFBBSyNAIRKQiuQII5h+2qoQhCSMASMMYyRQoQ=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Address" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAwAAAAIAAQACAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Address.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Details" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAIAAAAAAQAAACAAAADAAAAJAAAAAg=</HashCode>
+      <FileName>Data\Domain\Details.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Greenhouse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAgAAEIQAAAAAAAAEIAAACAEAAAAAAAIA=</HashCode>
+      <FileName>Data\Domain\Greenhouse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.GreenhouseUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAgAAAQQIAAAgAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\GreenhouseUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Preset" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIIAAASAgAAAAACAAAxEgAEIAAAAAAQEAAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Preset.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Product" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAQAggAAAEAAAAAQAgAEIABAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Section" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEACIIQAASBgAAEQwCAAAxAgAEAAgAAEIQEIAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Section.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Task" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAgAAAAIIAAAAAoAEoAAAAAAAEQAAQCAA=</HashCode>
+      <FileName>Data\Domain\Task.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.TaskType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAgAAAAAAAAAQAAAEIAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\TaskType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.GreenhouseFilters" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\GreenhouseFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.GreenhouseUserFilters" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAIAAACAAAAA=</HashCode>
+      <FileName>Data\Filters\GreenhouseUserFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.PresetFilters" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\PresetFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.ProductFilters" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\ProductFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.SectionFilters" Collapsed="true">
+    <Position X="23" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\SectionFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.TaskFilters" Collapsed="true">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\TaskFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.TaskTypeFilters" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAEAAAAA=</HashCode>
+      <FileName>Data\Filters\TaskTypeFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.GreenhouseRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIAAAQAAAAAAAQAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\GreenhouseRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.GreenhouseUserRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\GreenhouseUserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.PresetRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\PresetRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.ProductRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.SectionRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\SectionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.TaskRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\TaskRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.TaskTypeRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\TaskTypeRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Utility.LazyList&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAEAAAABAABAQCAAABAQAAAAAAAAACAAIAABQIQA=</HashCode>
+      <FileName>Data\Utility\LazyList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IAddress" Collapsed="true">
+    <Position X="14.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAwAAAAIAAQACAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IAddress.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IDomainModel" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IDomainModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IGreenhouse" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAQAAAAAAAAAAAAACAEAAAAAAAIA=</HashCode>
+      <FileName>Data\Domain\Interface\IGreenhouse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IGreenhouseUser" Collapsed="true">
+    <Position X="17.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAgAAAQQIAAAgAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IGreenhouseUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IPreset" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAASAgAAAAACAAAxEgAAAAAAAAAQEAAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Interface\IPreset.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IProduct" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAggAAAEAAAAAQAgAAAABAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ISection" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAQAASBgAAAQwCAAAxAgAAAAAAAEAQEIAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Interface\ISection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ITask" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAIIAAAAAoAAgAAAAAAAEAAAQCAA=</HashCode>
+      <FileName>Data\Domain\Interface\ITask.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ITaskType" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\ITaskType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.IGreenhouseRepository" Collapsed="true">
+    <Position X="16" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIAAAQAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\IGreenhouseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.IGreenhouseUserRepository" Collapsed="true">
+    <Position X="19.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\IGreenhouseUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.IPresetRepository" Collapsed="true">
+    <Position X="21.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\IPresetRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.IProductRepository" Collapsed="true">
+    <Position X="23" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\IProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.ISectionRepository" Collapsed="true">
+    <Position X="14.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\ISectionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.ITaskRepository" Collapsed="true">
+    <Position X="16" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\ITaskRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Repository.Interface.ITaskTypeRepository" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\Interface\ITaskTypeRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DV_Enterprises.Web.Data.Domain.TaskTypes" Collapsed="true">
+    <Position X="14.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAQEABAAAEAAAAIAAAAgAQAAAAA=</HashCode>
+      <FileName>Data\Domain\TaskTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Repository.Interface;
 using StructureMap;
@@ -37,7 +36,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc"></param>
         /// <returns>return an IQueryable collection of Product</returns>
-        public  IList<Domain.Product> All(DataContext dc)
+        public IQueryable<Domain.Product> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from p in dc.Products
@@ -52,19 +51,9 @@ namespace DV_Enterprises.Web.Data.Repository
                         DateUpdated = p.DateUpdated,
                         DateCreated = p.DateCreated
                     };
-            return r.ToList();
+            return r;
         }
 
-        /// <summary>
-        /// Find an Product by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Product</returns>
-        public Domain.Product Find(DataContext dc, int id)
-        {
-            return All(dc).Where(p => p.ID == id).SingleOrDefault();
-        }
 
         /// <summary>
         /// Save a Product
