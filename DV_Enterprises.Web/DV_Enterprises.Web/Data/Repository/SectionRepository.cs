@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Repository.Interface;
 using StructureMap;
@@ -36,7 +35,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc"></param>
         /// <returns>return an IQueryable collection of Section</returns>
-        public IQueryable<Domain.Section> All(DataContext dc)
+        public IQueryable<Domain.Section> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from s in dc.Sections
@@ -64,17 +63,6 @@ namespace DV_Enterprises.Web.Data.Repository
                         DateUpdated = s.DateUpdated
                     };
             return r;
-        }
-
-        /// <summary>
-        /// Find an Section by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Section</returns>
-        public Domain.Section Find(DataContext dc, int id)
-        {
-            return All(dc).Where(s => s.ID == id).SingleOrDefault();
         }
 
         /// <summary>
@@ -124,13 +112,13 @@ namespace DV_Enterprises.Web.Data.Repository
         /// <summary>
         /// Delete a single 
         /// </summary>
+        /// <param name="dc"></param>
         /// <param name="section"></param>
         public void Delete(DataContext dc, Domain.Section section)
         {
             dc = dc ?? Conn.GetContext();
             var dbSection = dc.Sections.Where(s => s.SectionID == section.ID).SingleOrDefault();
             if (dbSection == null) return;
-            //dc.Sections.Attach(dbSection, true);
             foreach (var task in dbSection.Tasks)
             {
                 dc.Tasks.DeleteOnSubmit(task);

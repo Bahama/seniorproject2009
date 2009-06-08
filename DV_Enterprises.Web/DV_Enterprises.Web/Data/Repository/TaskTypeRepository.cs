@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Domain;
 using DV_Enterprises.Web.Data.Repository.Interface;
@@ -37,7 +36,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of TaskType</returns>
-        public IQueryable<Domain.TaskType> All(DataContext dc)
+        public IQueryable<Domain.TaskType> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from t in dc.TaskTypes
@@ -50,38 +49,27 @@ namespace DV_Enterprises.Web.Data.Repository
             return r;
         }
 
-        /// <summary>
-        /// Find an TaskType by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a TaskType</returns>
-        public Domain.TaskType Find(DataContext dc, int id)
-        {
-            return All(dc).Where(t => t.ID == id).SingleOrDefault();
-        }
+        ///// <summary>
+        ///// Find TaskType by it's Enum type
+        ///// </summary>
+        ///// <param name="dc"></param>
+        ///// <param name="type"></param>
+        ///// <returns></returns>
+        //public Domain.TaskType Find(DataContext dc, TaskTypes type)
+        //{
+        //    var result = Find(dc).Where(t => t.Name == type.ToString()).SingleOrDefault();
+        //    if (result == null)
+        //    {
+        //        result = new Domain.TaskType
+        //        {
+        //            Name = type.ToString(),
+        //            Type = type
+        //        };
+        //        result.Save();
+        //    }
 
-        /// <summary>
-        /// Find TaskType by it's Enum type
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public Domain.TaskType Find(DataContext dc, TaskTypes type)
-        {
-            var result = All(dc).Where(t => t.Name == type.ToString()).SingleOrDefault();
-            if (result == null)
-            {
-                result = new Domain.TaskType
-                {
-                    Name = type.ToString(),
-                    Type = type
-                };
-                result.Save();
-            }
-
-            return result;
-        }
+        //    return result;
+        //}
 
         /// <summary>
         /// Save a TaskType

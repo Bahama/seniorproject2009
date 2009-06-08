@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Repository.Interface;
 using StructureMap;
@@ -31,7 +29,7 @@ namespace DV_Enterprises.Web.Data.Repository
             Conn = new Connection();
         }
 
-        public IQueryable<Domain.GreenhouseUser> All(DataContext dc)
+        public IQueryable<Domain.GreenhouseUser> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from gu in dc.GreenhouseUsers
@@ -43,11 +41,6 @@ namespace DV_Enterprises.Web.Data.Repository
                         GreenhouseID = gu.GreenhouseId
                     };
             return r;
-        }
-
-        public Domain.GreenhouseUser Find(DataContext dc, int id)
-        {
-            return All(dc).Where(gu => gu.ID == id).SingleOrDefault();
         }
 
         public int Save(DataContext dc, Domain.GreenhouseUser greenhouseUser)
@@ -80,7 +73,6 @@ namespace DV_Enterprises.Web.Data.Repository
             dc = dc ?? Conn.GetContext();
             var dbGreenhouseUser = dc.GreenhouseUsers.Where(g => g.GreenhouseUserId == greenhouseUser.ID).SingleOrDefault();
             if (dbGreenhouseUser == null) return;
-            //dc.Greenhouses.Attach(dbGreenhouse, true);
             foreach (var section in dbGreenhouseUser.Greenhouse.Sections.Where(gu => gu.UserID == dbGreenhouseUser.UserId))
             {
                 dc.Sections.DeleteOnSubmit(section);

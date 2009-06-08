@@ -18,7 +18,7 @@ namespace Products
         protected void Page_Load(object sender, EventArgs e)
         {
             if(IsPostBack) return;
-            LoadData(Product.All().ToList());
+            LoadData(Product.Find().ToList());
         }
 
         public void LoadData(List<Product> products)

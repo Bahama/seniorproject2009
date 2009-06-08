@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
 
@@ -15,7 +16,7 @@ namespace Products
         {
             if (IsPostBack) return;
             if (WebContext.ProductId <= 0) Redirector.GoToProducts();
-            LoadData(Product.Find((WebContext.ProductId)));
+            LoadData(Product.Find().ByID((WebContext.ProductId)));
         }
 
         public void LoadData(Product product)

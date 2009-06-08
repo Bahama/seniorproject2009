@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Domain.Interface;
+using DV_Enterprises.Web.Data.Filters;
 using StructureMap;
 
 namespace DV_Enterprises.Web.Data.Domain
@@ -27,7 +28,7 @@ namespace DV_Enterprises.Web.Data.Domain
         public int TaskTypeId { get; set; }
         public TaskType TaskType
         {
-            get { return _taskType ?? (TaskType = TaskType.Find(TaskTypeId)); }
+            get { return _taskType ?? (TaskType = TaskType.Find().ByID(TaskTypeId)); }
             set { _taskType = value; }
         }
         public DateTime DateCreated { get; set; }
@@ -41,9 +42,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// Find all Task's
         /// </summary>
         /// <returns>return an IQueryable collection of Task</returns>
-        public static IQueryable<Task> All()
+        public static IQueryable<Task> Find()
         {
-            return All(null);
+            return Find(null);
         }
 
         /// <summary>
@@ -51,31 +52,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of Task</returns>
-        public static IQueryable<Task> All(DataContext dc)
+        public static IQueryable<Task> Find(DataContext dc)
         {
-            return Repository.All(dc);
-        }
-
-
-        /// <summary>
-        /// Find an Task by it's id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>returns a Task</returns>
-        public static Task Find(int id)
-        {
-            return Find(null, id);
-        }
-
-        /// <summary>
-        /// Find an Task by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Task</returns>
-        public static Task Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
+            return Repository.Find(dc);
         }
 
         /// <summary>

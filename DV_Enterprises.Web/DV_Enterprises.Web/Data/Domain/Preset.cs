@@ -40,9 +40,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// Find all Preset's
         /// </summary>
         /// <returns>return an IQueryable collection of Preset</returns>
-        public static IQueryable<Preset> All()
+        public static IQueryable<Preset> Find()
         {
-            return All(null);
+            return Find(null);
         }
         
         /// <summary>
@@ -50,30 +50,9 @@ namespace DV_Enterprises.Web.Data.Domain
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of Preset</returns>
-        public static IQueryable<Preset> All(DataContext dc)
+        public static IQueryable<Preset> Find(DataContext dc)
         {
-            return Repository.All(dc);
-        }
-
-        /// <summary>
-        /// Find an Preset by it's id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>returns a Preset</returns>
-        public static Preset Find(int id)
-        {
-            return Find(null, id);
-        }
-         
-        /// <summary>
-        /// Find an Preset by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Preset</returns>
-        public static Preset Find(DataContext dc, int id)
-        {
-            return Repository.Find(dc, id);
+            return Repository.Find(dc);
         }
 
         /// <summary>

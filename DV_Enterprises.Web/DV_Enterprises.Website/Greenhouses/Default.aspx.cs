@@ -3,22 +3,16 @@ using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
-using StructureMap;
 
 namespace Greenhouses
 {
     public partial class Default : Page
     {
-        private readonly IWebContext _webContext;
-        private readonly IRedirector _redirector;
-
-        public Default()
-        {
-            _webContext = ObjectFactory.GetInstance<IWebContext>();
-            _redirector = ObjectFactory.GetInstance<IRedirector>();
-        }
+        private readonly static IWebContext WebContext = new WebContext();
+        private readonly static IRedirector Redirector = new Redirector();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,13 +24,13 @@ namespace Greenhouses
         {
             if (User.IsInRole("administrator"))
             {
-                LoadData(Greenhouse.All());
+                LoadData(Greenhouse.Find());
                 lbNewGreenhouse.Visible = true;
             }
             else
             {
                 lbNewGreenhouse.Visible = false;
-                LoadData(Greenhouse.AllByUsername(User.Identity.Name));
+                LoadData(Greenhouse.FindByUsername(User.Identity.Name));
             }
         }
 
@@ -60,7 +54,7 @@ namespace Greenhouses
         protected void lbView_Click(object sender, EventArgs e)
         {
             var lbView = sender as LinkButton;
-            if (lbView != null) _redirector.GoToViewGreenhouse(Convert.ToInt32(lbView.Attributes["GreenhouseID"]));
+            if (lbView != null) Redirector.GoToViewGreenhouse(Convert.ToInt32(lbView.Attributes["GreenhouseID"]));
         }
 
         protected void lvGreenhouses_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -140,8 +134,9 @@ namespace Greenhouses
 
         private void DeleteGreenhouse(Control item)
         {
-            var s = Greenhouse.ByID(Convert.ToInt32(((Literal)item.FindControl("litGreenhouseID")).Text));
-            s.Delete();
+            Greenhouse.Find()
+                .ByID(Convert.ToInt32(((Literal) item.FindControl("litGreenhouseID")).Text))
+                .Delete();
             Bind();
         }
     }

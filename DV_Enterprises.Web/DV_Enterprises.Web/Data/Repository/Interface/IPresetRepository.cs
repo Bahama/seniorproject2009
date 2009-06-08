@@ -1,5 +1,4 @@
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using StructureMap;
 
@@ -23,8 +22,7 @@ namespace DV_Enterprises.Web.Data.Repository.Interface
         #endregion
 
         #region Instance methods
-        IQueryable<Domain.Preset> All(DataContext dc);
-        Domain.Preset Find(DataContext dc, int id);
+        IQueryable<Domain.Preset> Find(DataContext dc);
         int Save(DataContext dc, Domain.Preset model);
         void Delete(DataContext dc, Domain.Preset model);
         #endregion

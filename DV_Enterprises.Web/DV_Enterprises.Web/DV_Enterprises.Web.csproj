@@ -58,15 +58,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataAccess\Connection.cs" />
+    <Compile Include="Data\Connection.cs" />
     <Compile Include="Data\DataAccess\DataContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\Domain\GreenhouseUser.cs" />
+    <Compile Include="Data\Domain\Interface\IGreenhouseUser.cs" />
     <Compile Include="Data\Domain\Preset.cs" />
-    <Compile Include="Data\Domain\Interface\Greenhouse.cs" />
+    <Compile Include="Data\Domain\Greenhouse.cs" />
     <Compile Include="Data\Domain\Interface\IPreset.cs" />
     <Compile Include="Data\Domain\Interface\IDomainModel.cs" />
     <Compile Include="Data\Domain\Interface\IGreenhouse.cs" />
@@ -83,6 +84,11 @@
     <Compile Include="Data\Domain\TaskTypes.cs" />
     <Compile Include="Data\Filters\GreenhouseFilters.cs" />
     <Compile Include="Data\Filters\GreenhouseUserFilters.cs" />
+    <Compile Include="Data\Filters\PresetFilters.cs" />
+    <Compile Include="Data\Filters\ProductFilters.cs" />
+    <Compile Include="Data\Filters\SectionFilters.cs" />
+    <Compile Include="Data\Filters\TaskFilters.cs" />
+    <Compile Include="Data\Filters\TaskTypeFilters.cs" />
     <Compile Include="Data\Repository\GreenhouseRepository.cs" />
     <Compile Include="Data\Repository\GreenhouseUserRepository.cs" />
     <Compile Include="Data\Repository\Interface\IGreenhouseRepository.cs" />
@@ -97,13 +103,7 @@
     <Compile Include="Data\Repository\SectionRepository.cs" />
     <Compile Include="Data\Repository\TaskRepository.cs" />
     <Compile Include="Data\Repository\TaskTypeRepository.cs" />
-    <Compile Include="Presenter\Products\Utility\LazyList.cs" />
-    <Compile Include="Presenter\Products\DefaultPresenter.cs" />
-    <Compile Include="Presenter\Products\Interface\IDefault.cs" />
-    <Compile Include="Presenter\Products\Interface\IManageProduct.cs" />
-    <Compile Include="Presenter\Products\Interface\IViewProduct.cs" />
-    <Compile Include="Presenter\Products\ManageProductPresenter.cs" />
-    <Compile Include="Presenter\Products\ViewProductPresenter.cs" />
+    <Compile Include="Data\Utility\LazyList.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -134,6 +134,9 @@
     <None Include="Documentation\ClassDiagram.cd" />
     <None Include="Documentation\Data\DomainModels.cd" />
     <None Include="Documentation\Data\SqlRepository.cd" />
+    <None Include="Documentation\Greenhouse.cd" />
+    <None Include="Documentation\IDomainModels.cd" />
+    <None Include="Documentation\Product.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

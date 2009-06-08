@@ -43,7 +43,7 @@ namespace Admin
                 roles = role;
             }
             litRoles.Text = roles;
-            lvGreenhouses.DataSource = Greenhouse.AllByUsername(user.UserName);
+            lvGreenhouses.DataSource = Greenhouse.FindByUsername(user.UserName);
             lvGreenhouses.DataBind();
         }
 

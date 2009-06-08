@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using DV_Enterprises.Web.Data.DataAccess;
+using System.Linq;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using StructureMap;
 
@@ -23,8 +22,7 @@ namespace DV_Enterprises.Web.Data.Repository.Interface
         #endregion
 
         #region Instance methods
-        IList<Domain.Product> All(DataContext dc);
-        Domain.Product Find(DataContext dc, int id);
+        IQueryable<Domain.Product> Find(DataContext dc);
         int Save(DataContext dc, Domain.Product model);
         void Delete(DataContext dc, Domain.Product model);
         #endregion

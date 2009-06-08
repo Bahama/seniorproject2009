@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Repository.Interface;
 using StructureMap;
@@ -36,7 +35,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of TaskRepository</returns>
-        public IQueryable<Domain.Task> All(DataContext dc)
+        public IQueryable<Domain.Task> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from t in dc.Tasks
@@ -52,18 +51,6 @@ namespace DV_Enterprises.Web.Data.Repository
                                    DateUpdated = t.DateUpdated
                                };
             return r;
-        }
-
-
-        /// <summary>
-        /// Find an TaskRepository by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a TaskRepository</returns>
-        public Domain.Task Find(DataContext dc, int id)
-        {
-            return All(dc).Where(t => t.ID == id).SingleOrDefault();
         }
 
         /// <summary>

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using DV_Enterprises.Web.Data.DataAccess;
 using DV_Enterprises.Web.Data.DataAccess.SqlRepository;
 using DV_Enterprises.Web.Data.Repository.Interface;
 using StructureMap;
@@ -36,7 +35,7 @@ namespace DV_Enterprises.Web.Data.Repository
         /// </summary>
         /// <param name="dc">DataContext</param>
         /// <returns>return an IQueryable collection of Preset</returns>
-        public IQueryable<Domain.Preset> All(DataContext dc)
+        public IQueryable<Domain.Preset> Find(DataContext dc)
         {
             dc = dc ?? Conn.GetContext();
             var r = from p in dc.Presets
@@ -58,17 +57,6 @@ namespace DV_Enterprises.Web.Data.Repository
                         DateUpdated = p.DateUpdated
                     };
             return r;
-        }
-
-        /// <summary>
-        /// Find an Preset by it's id.
-        /// </summary>
-        /// <param name="dc"></param>
-        /// <param name="id"></param>
-        /// <returns>returns a Preset</returns>
-        public Domain.Preset Find(DataContext dc, int id)
-        {
-            return All(dc).Where(p => p.ID == id).SingleOrDefault();
         }
 
         /// <summary>

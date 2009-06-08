@@ -1,40 +1,33 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Service;
+using DV_Enterprises.Web.Service.Interface;
 
-public partial class Greenhouses_AddCrop : System.Web.UI.Page
+namespace Greenhouses
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class AddCrop : System.Web.UI.Page
     {
+        private readonly static IWebContext WebContext = new WebContext();
+        private readonly static IRedirector Redirector = new Redirector();
 
-    }
+        protected void Page_Load(object sender, EventArgs e) { }
 
-    protected void btnSave_Click(object sender, EventArgs e)
-    {
-        var p = new Preset
+        protected void btnSave_Click(object sender, EventArgs e)
         {
-            ID = 0,
-            Name = txtCropName.Text,
-            IdealTemperature = Convert.ToInt32(txtIdealTemp.Text),
-            TemperatureThreshold = Convert.ToInt32(txtTempRange.Text),
-            IdealLightIntensity = Convert.ToInt32(txtLightRange.Text),
-            LightIntensityThreshold = Convert.ToInt32(txtLightRange.Text),
-            IdealHumidity = Convert.ToInt32(txtHumidity.Text),
-            HumidityThreshold = Convert.ToInt32(txtHumidityRange.Text),
-            IdealWaterLevel = Convert.ToInt32(txtWaterLevel.Text),
-            WaterLevelThreshold = Convert.ToInt32(txtWaterThreshold.Text)
+            new Preset
+                {
+                    ID = 0,
+                    Name = txtCropName.Text,
+                    IdealTemperature = Convert.ToInt32(txtIdealTemp.Text),
+                    TemperatureThreshold = Convert.ToInt32(txtTempRange.Text),
+                    IdealLightIntensity = Convert.ToInt32(txtLightRange.Text),
+                    LightIntensityThreshold = Convert.ToInt32(txtLightRange.Text),
+                    IdealHumidity = Convert.ToInt32(txtHumidity.Text),
+                    HumidityThreshold = Convert.ToInt32(txtHumidityRange.Text),
+                    IdealWaterLevel = Convert.ToInt32(txtWaterLevel.Text),
+                    WaterLevelThreshold = Convert.ToInt32(txtWaterThreshold.Text)
 
-        };
-        p.Save();
+                }.Save();
+        }
     }
 }
