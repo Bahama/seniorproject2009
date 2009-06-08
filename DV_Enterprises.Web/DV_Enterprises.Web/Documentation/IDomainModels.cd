@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IGreenhouse">
+    <Position X="18" Y="4" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAQAAAAAAAAAAAAACAEAAAAAAAIA=</HashCode>
+      <FileName>Data\Domain\Interface\IGreenhouse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IPreset">
+    <Position X="4" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAASAgAAAAACAAAxEgAAAAAAAAAQEAAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Interface\IPreset.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IProduct">
+    <Position X="0.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAggAAAEAAAAAQAgAAAABAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ISection">
+    <Position X="7.75" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAEACAAQAASBgAAAQwCAAAxAgAAAAAAAEAQEIAAAAIQ=</HashCode>
+      <FileName>Data\Domain\Interface\ISection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ITask">
+    <Position X="11.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAIIAAAAAoAAgAAAAAAAEAAAQCAA=</HashCode>
+      <FileName>Data\Domain\Interface\ITask.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.ITaskType">
+    <Position X="15" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\ITaskType.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IDomainModel">
+    <Position X="10" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IDomainModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

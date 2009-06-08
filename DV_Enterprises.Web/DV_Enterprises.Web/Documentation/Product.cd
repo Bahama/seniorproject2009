@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="DV_Enterprises.Web.Data.DataAccess.SqlRepository.Product" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>EIgiAAABAQEhAgUAUgEAIAQBiCCISBRmAAQEEAAIAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Domain.Product" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAQAggAAAEAAAAAQAgAEIABAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Product.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Filters.ProductFilters">
+    <Position X="4.5" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAIAAAAAAAAA=</HashCode>
+      <FileName>Data\Filters\ProductFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DV_Enterprises.Web.Data.Repository.ProductRepository" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAABAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Repository\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DV_Enterprises.Web.Data.Domain.Interface.IProduct">
+    <Position X="4.5" Y="4.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAggAAAEAAAAAQAgAAAABAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domain\Interface\IProduct.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
