@@ -39,7 +39,7 @@
             </div></div>
             <div id="navigation" class="inner container_16 clearfix">
                     <div class="grid_14">
-                        <asp:Menu ID="Menu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="" />
+                        <asp:Menu ID="Menu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="" CssClass="grid_14" />
                     </div>
                     <ul class="grid_2 social">
                         <li>
