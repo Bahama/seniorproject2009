@@ -27,12 +27,12 @@
             <li class="grid_4">
                 <asp:Literal ID="litGreenhouseID" runat="server" Visible="false" Text="<%# ((Greenhouse)Container.DataItem).ID %>" />
                 <asp:LinkButton ID="lbView" runat="server" OnClick="lbView_Click">
-                    <asp:Image runat="server" ID="imageGreenHouse" ImageUrl="~/images/greenhouse.png" width="121px" height="147px" />
+                    <asp:Image runat="server" ID="imageGreenHouse" ImageUrl="~/images/greenhouse.png" width="220px" />
                 </asp:LinkButton>
                 <h3 class="title">
                     <asp:HyperLink ID="linkGreenhouseName" runat="server" Text='<%# ((Greenhouse)Container.DataItem).ToString() %>' />
+                    <span><asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete" Text="(delete)" /></span>
                 </h3>
-                <asp:LinkButton ID="lbDelete" runat="server" CommandName="Delete" Text="delete" />
             </li>
         </ItemTemplate>
         
