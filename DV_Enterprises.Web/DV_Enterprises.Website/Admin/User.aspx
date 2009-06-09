@@ -6,8 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2 class="title grid_16"><asp:Literal ID="litTitle" runat="server" /></h2>
     <div class="grid_8">
+        <h3 class="title">Details</h3>
         <dl class="table_display clearfix">
-            <h3 class="title">Details</h3>
             <dt>User name:</dt>
             <dd><asp:Literal ID="litUserName" runat="server" /></dd>
             <dt>Email:</dt>
@@ -16,8 +16,8 @@
             <dd><asp:Literal ID="litFullAddress" runat="server" /></dd>
             <dt>Phone:</dt>
             <dd><asp:Literal ID="litPhone" runat="server" /></dd>
-            <dt>Roles:</dt>
-            <dd><asp:Literal ID="litRoles" runat="server" /></dd>
+            <dt>Manage Administrators:</dt>
+            <dd><asp:Button ID="butToggleAdmin" runat="server" onclick="butToggleAdmin_Click" /></dd>
         </dl>
     </div>
     <div class="grid_8">

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.UI;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Data.Filters;
 using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
 
@@ -18,10 +18,10 @@ namespace Products
         protected void Page_Load(object sender, EventArgs e)
         {
             if(IsPostBack) return;
-            LoadData(Product.Find().ToList());
+            LoadData(Product.Find().All());
         }
 
-        public void LoadData(List<Product> products)
+        public void LoadData(IList<Product> products)
         {
             lvProducts.DataSource = products;
             lvProducts.DataBind();

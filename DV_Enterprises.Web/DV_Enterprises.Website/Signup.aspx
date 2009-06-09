@@ -6,7 +6,8 @@
    
     <div class="grid_16">
       <h4 class="title">
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ActiveStepIndex="1" oncreateduser="CreateUserWizard1_CreatedUser" 
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" 
+              oncreateduser="CreateUserWizard1_CreatedUser" 
        >
         
         <FinishNavigationTemplate>

@@ -16,31 +16,24 @@ a { text-decoration: none; }
 .green { color: #92CC47; }
 
 /** Header **/
-#header { height: 110px; }
+#header { height: 160px; }
+#header .inner { position: relative; }
 #header h1 { height: 50px; float: left; margin-top: 20px; }
 #header a.logo { float: left; }
-#header h1 a {
-    background: url('../images/site_name.png') no-repeat left top;
-    display: block;
-    height: 50px;
-    width: 550px;
-    text-decoration: none;
-    text-indent: -9999em;
-    z-index: 99;
-}
-#header #userbox {background: url('../images/user_box.png') no-repeat top; float: right; height: 50px; text-align: center; padding: 10px 5px; width: 180px;}
+#header h1 a { background: url('../images/site_name.png') no-repeat left top; display: block; height: 50px; width: 550px; text-decoration: none; text-indent: -9999em; z-index: 99; }
+#header #userbox {background: url('../images/user_box.png') no-repeat top; float: right; height: 50px; text-align: center; padding: 10px 5px; width: 180px; position: absolute; right: -5px}
 
 /** Navigatiion **/
-#navigation { height: 50px; }
-#navigation .inner { background: url('../images/navigation.png') no-repeat center top; }
-#navigation { height: 50px; font-size: 18px; color: #000; clear: left;}
-#navigation ul { text-align: center; }
-#navigation li { margin: 0; display:inline; }
+#navigation { height: 50px; background: url('../images/navigation.png') no-repeat center top; font-size: 18px; color: #000; clear: left;}
+#navigation ul { text-align: center; float:left; }
+#navigation li { margin: 0; display:inline-block; }
 #navigation a { display: block; margin: 8px 0  12px; padding: 0 10px; height: 30px !important; color: #000; }
 #navigation a:hover { background-color: #c7e3a4; }
 #navigation .social li { float: right;}
-#navigation .social a { padding: 4px;}
-#navigation .social a:hover { background-color: Transparent; }
+#navigation .social a { display: block; height: 24px; width: 24px; text-decoration: none; text-indent: -9999em; margin: 8px 5px 12px 0; padding: 0; opacity: .7; }
+#navigation .social a.twitter { background: url('../images/t.png') no-repeat left top; }
+#navigation .social a.facebook { background: url('../images/f.png') no-repeat left top; }
+#navigation .social a:hover { opacity: 1; }
 
 /** Content **/
 #content {background: url('../images/content.png') repeat-x center bottom; }

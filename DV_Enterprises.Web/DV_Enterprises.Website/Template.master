@@ -37,26 +37,21 @@
                     </asp:LoginView>
                 </div><!-- END userbox -->
             </div></div>
-        </div> <!-- #Header -->
-        <div id="navigation">
-            <div class="inner container_16 clearfix">
-                <div class="grid_14">
-                    <asp:Menu ID="Menu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="" />
+            <div id="navigation" class="inner container_16 clearfix">
+                    <div class="grid_14">
+                        <asp:Menu ID="Menu" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticSubMenuIndent="" CssClass="grid_14" />
+                    </div>
+                    <ul class="grid_2 social">
+                        <li>
+                            <asp:HyperLink ID="lnkFacebook" runat="server" NavigateUrl="http://www.facebook.com/profile.php?id=1846000627&ref=profile" Target="_blank" ToolTip="Follow us on Facebook" Text="Follow us on Facebook" CssClass="facebook" />
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="lnkTwitter" runat="server" NavigateUrl="http://twitter.com/SmartGreen" Target="_blank" ToolTip="Follow us on Twitter" Text="Follow us on Twitter" CssClass="twitter" />
+                        </li>
+                    </ul>
                 </div>
-                <ul class="grid_2 social">
-                    <li>
-                        <asp:HyperLink ID="lnkFacebook" runat="server" NavigateUrl="http://www.facebook.com/profile.php?id=1846000627&ref=profile" Target="_blank" ToolTip="Follow us on Facebook">
-                            <asp:Image ID="ingFacebookF" runat="server" SkinID="FaceBookF" />
-                        </asp:HyperLink>
-                    </li>
-                    <li>
-                        <asp:HyperLink ID="lnkTwitter" runat="server" NavigateUrl="http://twitter.com/SmartGreen" Target="_blank" ToolTip="Follow us on Twitter">
-                            <asp:Image ID="imgTwitterT" runat="server" SkinID="TwitterT" />
-                        </asp:HyperLink>
-                    </li>
-                </ul>
             </div>
-        </div>
+        </div> <!-- #Header -->
         <div id="content">
             <div class="inner container_16 clearfix">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />

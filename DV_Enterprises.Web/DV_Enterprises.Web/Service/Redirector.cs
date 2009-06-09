@@ -74,7 +74,7 @@ namespace DV_Enterprises.Web.Service
 
         public void GoToAdminUserPage(string username)
         {
-            Redirect(String.Format("~/Admin/User.aspx?UserID={0}", username));
+            Redirect(String.Format("~/Admin/User.aspx?Username={0}", username));
         }
 
         private static void Redirect(string path)

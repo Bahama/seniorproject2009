@@ -405,13 +405,14 @@ namespace Greenhouses
         protected void butAddUsers_Click(object sender, EventArgs e)
         {
             var userid = new Guid(ddlUsers.SelectedValue);
-            if (GreenhouseUser.Find().Where(gu => gu.UserID == userid).SingleOrDefault() == null)
+            if (GreenhouseUser.Find().ByUserID(userid).ByGreenhouseID(WebContext.GreenhouseIdSession).SingleOrDefault() == null)
             {
-                new GreenhouseUser
+                var g = new GreenhouseUser
                     {
                         UserID = userid,
                         GreenhouseID = WebContext.GreenhouseIdSession,
-                    }.Save();
+                    };
+                g.Save();
             }
             Bind();
         }
