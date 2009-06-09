@@ -3,6 +3,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DV_Enterprises.Web.Data.Domain;
+using DV_Enterprises.Web.Service;
 using DV_Enterprises.Web.Service.Interface;
 using StructureMap;
 
@@ -10,22 +11,16 @@ namespace Admin
 {
     public partial class User : Page
     {
-        private MembershipUserCollection users = Membership.GetAllUsers();
-        private readonly IWebContext _webContext;
-        private readonly IRedirector _redirector;
-
-        public User()
-        {
-            _webContext = ObjectFactory.GetInstance<IWebContext>();
-            _redirector = ObjectFactory.GetInstance<IRedirector>();
-        }
+        private readonly MembershipUserCollection _users = Membership.GetAllUsers();
+        private static readonly IWebContext WebContext = new WebContext();
+        private static readonly IRedirector Redirector = new Redirector();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (_webContext.Username == string.Empty) _redirector.GoToAdminPage();
+            if (WebContext.Username == string.Empty) Redirector.GoToAdminPage();
             if (IsPostBack) return;
-            var username = _webContext.Username;
-            var user = users[username];
+            var username = WebContext.Username;
+            var user = _users[username];
             var userProfile = Profile.GetProfile(user.UserName);
 
             var title = string.IsNullOrEmpty(userProfile.Details.Name)
@@ -37,12 +32,16 @@ namespace Admin
             linkEmail.Text = user.Email;
             litFullAddress.Text = userProfile.Details.Address;
             litPhone.Text = userProfile.Details.Phone;
-            var roles = string.Empty;
-            foreach (var role in Roles.GetRolesForUser(user.UserName))
+            if (Roles.IsUserInRole(user.UserName, "administrator"))
             {
-                roles = role;
+                butToggleAdmin.Text = "remove from administrators";
+                butToggleAdmin.Attributes.Add("IsAdmin", "True");
             }
-            litRoles.Text = roles;
+            else
+            {
+                butToggleAdmin.Text = "make administrator";
+                butToggleAdmin.Attributes.Add("IsAdmin", "False");
+            }
             lvGreenhouses.DataSource = Greenhouse.FindByUsername(user.UserName);
             lvGreenhouses.DataBind();
         }
@@ -50,9 +49,9 @@ namespace Admin
         protected void lbView_Click(object sender, EventArgs e)
         {
             var lbView = sender as LinkButton;
-            if (lbView != null) _redirector.GoToViewGreenhouse(Convert.ToInt32(lbView.Attributes["GreenhouseID"]));
+            if (lbView != null) Redirector.GoToViewGreenhouse(Convert.ToInt32(lbView.Attributes["GreenhouseID"]));
         }
-    
+
         protected void lvGreenhouses_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             var litGreenhouseId = e.Item.FindControl("litGreenhouseId") as Literal;
@@ -63,7 +62,21 @@ namespace Admin
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            users.Remove(User.Identity.Name);
+            _users.Remove(User.Identity.Name);
+        }
+
+        protected void butToggleAdmin_Click(object sender, EventArgs e)
+        {
+            var user = _users[litUserName.Text];
+            if (bool.Parse(butToggleAdmin.Attributes["IsAdmin"]))
+            {
+                Roles.RemoveUserFromRole(user.UserName, "administrator");
+            }
+            else
+            {
+                Roles.AddUserToRole(user.UserName, "administrator");
+            }
+            Redirector.GoToAdminUserPage(user.UserName);
         }
     }
 }
