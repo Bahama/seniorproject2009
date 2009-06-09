@@ -17,10 +17,11 @@ a { text-decoration: none; }
 
 /** Header **/
 #header { height: 160px; }
+#header .inner { position: relative; }
 #header h1 { height: 50px; float: left; margin-top: 20px; }
 #header a.logo { float: left; }
 #header h1 a { background: url('../images/site_name.png') no-repeat left top; display: block; height: 50px; width: 550px; text-decoration: none; text-indent: -9999em; z-index: 99; }
-#header #userbox {background: url('../images/user_box.png') no-repeat top; float: right; height: 50px; text-align: center; padding: 10px 5px; width: 180px;}
+#header #userbox {background: url('../images/user_box.png') no-repeat top; float: right; height: 50px; text-align: center; padding: 10px 5px; width: 180px; position: absolute; right: -5px}
 
 /** Navigatiion **/
 #navigation { height: 50px; background: url('../images/navigation.png') no-repeat center top; font-size: 18px; color: #000; clear: left;}
