@@ -52,7 +52,7 @@
     
     <div class="testimonials clearfix">
         <ul>
-            <h2 class="title grid_14 suffix_1 prefix_1">What our Customer think</h2>
+            <h2 class="title grid_14 suffix_1 prefix_1">What our Customers think</h2>
             <li class="grid_16">
                 <asp:Image ID="Image4" runat="server" ImageUrl="~/images/farmer1.png" CssClass="grid_2 prefix_1" />
                 <p class="grid_11 suffix_1">“A few months ago, I purchased an all-in-one control unit from SGS. I have already noticed a vast improvement in my crop yields. When I first began using the system I had some questions which the customer service department quickly and completely assisted me with. This is an excellent company.  I will be recommending your product to friends.”<i>~Ima Grower </i></p>
