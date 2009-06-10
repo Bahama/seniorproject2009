@@ -26,8 +26,8 @@ a { text-decoration: none; }
 /** Navigatiion **/
 #navigation { height: 50px; background: url('../images/navigation.png') no-repeat center top; font-size: 18px; color: #000; clear: left;}
 #navigation ul { text-align: center; float:left; }
-#navigation li { margin: 0; display:inline-block; }
-#navigation a { display: block; margin: 8px 0  12px; padding: 0 10px; height: 30px !important; color: #000; }
+#navigation li { margin: 0; display:inline-block; width: auto; }
+#navigation a { display: block; margin: 8px 0  12px; padding: 0 10px; height: 30px !important; color: #000; float: left; }
 #navigation a:hover { background-color: #c7e3a4; }
 #navigation .social li { float: right;}
 #navigation .social a { display: block; height: 24px; width: 24px; text-decoration: none; text-indent: -9999em; margin: 8px 5px 12px 0; padding: 0; opacity: .7; }
